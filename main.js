@@ -59,7 +59,8 @@ $(document).ready(function() {
     start();
 
     $(".NavForward").click(function() {
-        console.log("Continue");
+
+        console.log("clicked");
 
         if(currentPage < pages.length && set) {
             $(".Page").animate({left: "-100%"});
@@ -70,7 +71,8 @@ $(document).ready(function() {
         console.log("Back");
 
         if(currentPage > 0 && set) {
-            $(".Page").animate({left: "100%"});
+
+            $(".Page").animate({left: "+100%"});
         }
     });
 
@@ -88,23 +90,45 @@ async function setWebpage() {
 
         if(line.startsWith("|Page|")) {
 
+            if(currentPage >= 0) {
+
+                let br = document.createElement("br");
+
+                let div = document.createElement("div");
+                div.className = "Navigation";
+                
+                let div2 = document.createElement("div");
+                div2.innerText = "Back";
+                div2.className += "NavBack";
+
+                let div3 = document.createElement("div");
+                div3.innerText = "Continue";
+                div3.className += "NavForward";
+
+                div.appendChild(div2);
+                div.appendChild(div3);
+
+                pages[currentPage].innerDiv.appendChild(br);
+                pages[currentPage].innerDiv.appendChild(div);
+            }
+
             currentPage++;
             pages.push(new Page());
 
             let title = line.replace("|Page|", "");
             let pageDiv = document.createElement("div");
-            pageDiv.className = "Page";
+            pageDiv.className += "Page";
             pages[currentPage].div = pageDiv;
 
             let pageInnerDiv = document.createElement("div");
-            pageInnerDiv.className = "PageContent";
+            pageInnerDiv.className += "PageContent";
             pageDiv.appendChild(pageInnerDiv);
             pages[currentPage].innerDiv = pageInnerDiv;
 
             pageHolder.appendChild(pageDiv);
 
             let pageTitle = document.createElement("div");
-            pageTitle.className = "PageTitle";
+            pageTitle.className += "PageTitle";
             pageTitle.innerText = title;
             pageInnerDiv.appendChild(pageTitle);
         }
@@ -112,25 +136,25 @@ async function setWebpage() {
 
             let text = line.replace("|Question|", "");
             let div = document.createElement("div");
-            div.className = "Question";
+            div.className += "Question";
             div.innerText = text;
             pages[currentPage].innerDiv.appendChild(div);
         }
         else if(line.startsWith("|ReqYesNo|" || "YesNo")) {
 
             let div = document.createElement("div");
-            div.className = "YesNo";
+            div.className += "YesNo";
 
             let div2 = document.createElement("div");
-            div2.className = "YesNoButton";
+            div2.className += "YesNoButton";
             div2.innerText = "Yes";
 
             let div3 = document.createElement("div");
-            div3.className = "YesNoButton YesNoActive";
+            div3.className += "YesNoButton YesNoActive";
             div3.innerText = "No";
 
             let div4 = document.createElement("div");
-            div4.className = "YesNoButtonActive";
+            div4.className += "YesNoButtonActive";
 
             div.appendChild(div2);
             div.appendChild(div3);
