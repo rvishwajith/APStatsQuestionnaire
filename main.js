@@ -19,9 +19,13 @@ class Page {
     }
 }
 
+/*
+
 window.onbeforeunload = function() {
   return "Data will be lost if you leave the page, are you sure?";
 };
+
+*/
 
 function getText(url) {
     return new Promise((resolve, reject) => {
@@ -45,7 +49,7 @@ function getText(url) {
 
 async function start() {
     let markupLoc = "https://raw.githubusercontent.com/rvishwajith/APStatsQuestionnare/main/Data/SurveyMarkup.txt";
-    markup = await getText("https://raw.githubusercontent.com/rvishwajith/APStatsQuestionnare/main/Data/SurveyMarkup.txt");
+    markup = await getText(markupLoc);
     
     await setWebpage();
 }
@@ -110,6 +114,28 @@ async function setWebpage() {
             let div = document.createElement("div");
             div.className = "Question";
             div.innerText = text;
+            pages[currentPage].innerDiv.appendChild(div);
+        }
+        else if(line.startsWith("|ReqYesNo|" || "YesNo")) {
+
+            let div = document.createElement("div");
+            div.className = "YesNo";
+
+            let div2 = document.createElement("div");
+            div2.className = "YesNoButton";
+            div2.innerText = "Yes";
+
+            let div3 = document.createElement("div");
+            div3.className = "YesNoButton YesNoActive";
+            div3.innerText = "No";
+
+            let div4 = document.createElement("div");
+            div4.className = "YesNoButtonActive";
+
+            div.appendChild(div2);
+            div.appendChild(div3);
+            div.appendChild(div4);
+
             pages[currentPage].innerDiv.appendChild(div);
         }
     }

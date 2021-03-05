@@ -2,7 +2,7 @@
 PART 1: SURVEY CONFIRMATION AND CONSENT
 ***********************
 
-|Page|Survey Consent
+|Page|Survey Consent & Accuracy Confirmation
 |Question|I am a current student at Monta Vista High School and would like to take this survey.
 |ReqYesNo|
 |Question|I will be able to take a similar questionnaire in about 2 weeks, and another similar questionnaire about 4 weeks from now.
