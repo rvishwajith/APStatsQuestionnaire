@@ -58,25 +58,47 @@ $(document).ready(function() {
 
     start();
 
-    $(".NavForward").click(function() {
+    // LEFT
+    $(document).on("click",".NavBack", function (event) {
 
-        console.log("clicked");
-
+        
+        
         if(currentPage < pages.length && set) {
-            $(".Page").animate({left: "-100%"});
+
+            let newLeft = (currentPage - 1) * (-100) + "%";
+            console.log(newLeft);
+
+            $(".Page").animate({left: newLeft});
+            currentPage--;
         }
+
+        
     });
 
-    $(".NavBack").click(function() {
-        console.log("Back");
+    // RIGHT
+    $(document).on("click",".NavForward", function (event) {
 
-        if(currentPage > 0 && set) {
+        
+        
+        if(currentPage < pages.length && set) {
 
-            $(".Page").animate({left: "+100%"});
+            let newRight = (currentPage + 1) * -100 + "%";
+            console.log(newRight);
+
+            $(".Page").animate({left: newRight});
+            currentPage++;
         }
     });
 
 });
+
+function backClicked() {
+
+}
+
+function nextClicked() {
+
+}
 
 async function setWebpage() {
     
@@ -140,7 +162,7 @@ async function setWebpage() {
             div.innerText = text;
             pages[currentPage].innerDiv.appendChild(div);
         }
-        else if(line.startsWith("|ReqYesNo|" || "YesNo")) {
+        else if(line.startsWith("|ReqYesNo|" || "|YesNo|")) {
 
             let div = document.createElement("div");
             div.className += "YesNo";
