@@ -66,8 +66,7 @@ body {
 	top: 0px;
 	left: 50%;
 	transform: translate(-50%, 0%);
-
-	overflow-x: scroll;
+	overflow-x: hidden;
     overflow-y: scroll;
     white-space: nowrap;
     display: inline-block;
