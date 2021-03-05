@@ -1,6 +1,6 @@
 let markupLoc = "https://raw.githubusercontent.com/rvishwajith/APStatsQuestionnare/main/Data/SurveyMarkup.txt";
 let markup = getText("https://raw.githubusercontent.com/rvishwajith/APStatsQuestionnare/main/Data/SurveyMarkup.txt");
-console.log(markup)
+//console.log(markup);
 
 function getText(url) {
     return new Promise((resolve, reject) => {
@@ -15,7 +15,7 @@ function getText(url) {
 
                 if (type.indexOf("text") !== 1) {
                     finalVal = request.responseText;
-                    // console.log(finalVal);
+                    console.log(finalVal);
                     resolve(finalVal);
                 }
             }
