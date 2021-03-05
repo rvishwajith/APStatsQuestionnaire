@@ -60,10 +60,9 @@ function setWebpage() {
             // console.log("New page count: " + currentPage);
             pages.push(new Page());
 
-            let pageTitle = line.replace("|Page|", "");
+            let title = line.replace("|Page|", "");
             let pageDiv = document.createElement("div");
             pageDiv.className = "Page";
-            pageDiv.innerText = pageTitle;
             pages[currentPage].div = pageDiv;
 
             let pageInnerDiv = document.createElement("div");
@@ -72,6 +71,11 @@ function setWebpage() {
             pages[currentPage].innerDiv = pageInnerDiv;
 
             pageHolder.appendChild(pageDiv);
+
+            let pageTitle = document.createElement("div");
+            pageTitle.className = "PageTitle";
+            pageTitle.innerText = title;
+            pageInnerDiv.appendChild(pageTitle);
         }
         else if(line.startsWith("|Question|")) {
 
@@ -83,3 +87,30 @@ function setWebpage() {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
