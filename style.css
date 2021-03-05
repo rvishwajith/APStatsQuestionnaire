@@ -1,0 +1,17 @@
+:root {
+	--main-bg-color: #00274F;
+	--main-text: white;
+	--main-subtext: #89BBFF;
+}
+
+@font-face {
+	font-family: ProductSans;
+	font-weight: normal;
+	src: url('Fonts/PSRegular.ttf');
+}
+
+@font-face {
+	font-family: ProductSans;
+	font-weight: bold;
+	src: url('Fonts/PSBold.ttf');
+}

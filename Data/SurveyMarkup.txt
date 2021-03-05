@@ -1,0 +1,155 @@
+***********************
+PART 1: SURVEY CONFIRMATION AND CONSENT
+***********************
+
+|Page|Survey Consent
+|Question|I am a current student at Monta Vista High School and would like to take this survey.
+|YesNo|
+|Question|I will be able to take a similar questionnaire in about 2 weeks, and another similar questionnaire about 4 weeks from now.
+|YesNo|
+|Question|I am aware that this questionnaire will be used in a research project, and that my Student ID will be used for anonymous internal identification.
+|YesNo|
+
+|Page|Email Collection
+|Question|Please enter your Monta Vista Student Email to continue.
+|Subtext|What's my student email?
+|SubtextInfo|Your student email is your FUHSD email, for example "jsmith999@student.fuhsd.org".
+|TextBox|Please enter your student email.
+
+|Page|Email Confirmation
+|StudentEmail|
+|Question|Is this your correct student email?
+|YesNo|
+
+
+
+***********************
+PART 2: WHAT TYPE OF SPORTS DO STUDENTS PLAY?
+***********************
+
+|Page|Individual Sports
+|Question|Do you play sports with an organization outside of school on a weekly basis?
+|YesNo|
+
+|Page|Recreational Sports
+|Question|Do you play sports recreationally on a weekly basis?
+|YesNo|
+
+|Page|School Sports
+|Question|Do you play sports as part of an official school team or club on a weekly basis?
+|YesNo|
+
+
+
+***********************
+PART 3: TEAM-FOCUSED SPORTS INFO
+***********************
+
+|Page|Team-based Sports
+|Question|How many team-focused sports do you play more than 1 hour a week?
+-----------------
+|Subtext|What's a team-focused sport?
+|SubtextInfo|A team-based sport requires interactions between an organized group of players. Some examples are football, basketball, and soccer.
+|Answer|I don't play any.
+|Answer|I play 1 team sport weekly.
+|Answer|I play 2 team sports weekly.
+|Answer|I play 3 or more weekly.
+
+|Page|Team-focused Activity
+|Question|On average, how many minutes of team-based sports do you play weekly?
+|Answer|0 - 60
+|Answer|60 - 120
+|Answer|120 - 180
+|Answer|180 - 240
+|Answer|240+
+
+
+
+***********************
+PART 4: SOLO SPORTS INFO
+***********************
+
+This page asks how many individual sports they play.
+|Page|Individual Sports
+|Question|How many individual sports do you play for more than 1 hour a week?
+-----------------
+|Subtext|What's an individual sport?
+|SubtextInfo|An individual sport is focused around a single player/ Examples are solo badminton or tennis.
+|Answer|I don't play any.
+|Answer|I play 1 solo sport weekly.
+|Answer|I play 2 solo sports weekly.
+|Answer|I play 3 or more weekly.
+
+|Page|Individual Activity
+|Question|On average, how many minutes of individual sports do you play weekly?
+|Answer|0 - 60
+|Answer|60 - 120
+|Answer|120 - 180
+|Answer|180 - 240
+|Answer|240+
+
+
+
+***********************
+PART 5: UCLA LONELINESS SCALE
+https://fetzer.org/sites/default/files/images/stories/pdf/selfmeasures/Self_Measures_for_Loneliness_and_Interpersonal_Problems_UCLA_LONELINESS_REVISED.pdf
+***********************
+
+|Page|UCLA Loneliness Measurements
+|Question|Please answer the following questions to the best of your ability. All answers will remain anonymous.
+|Question|1. Never
+|Question|2. Rarely
+|Question|3. Sometimes
+|Question|4. Often
+|Question|I feel in tune with the people around me.
+|1234|
+|Question|I lack companionship.
+|1234|
+|Question|There is no one I can turn to.
+|1234|
+|Question|I do not feel alone.
+|1234|
+|Question|I feel part of a group of friends.
+|1234|
+|Question|I have a lot in common with the people around me.
+|1234|
+|Question|I am no longer close to anyone.
+|1234|
+|Question|My interests and ideas are not shared by those around me.
+|1234|
+|Question|I am an outgoing person.
+|1234|
+|Question|There are people I feel close to.
+|1234|
+|Question|I feel left out.
+|1234|
+|Question|My social relationships are superficial.
+|1234|
+|Question|No one really knows me well.
+|1234|
+|Question|I feel isolated from others.
+|1234|
+|Question|I can find companionship when I want it.
+|1234|
+|Question|There are people who really understand me.
+|1234|
+|Question|I am unhappy being so withdrawn.
+|1234|
+|Question|People are around me but not with me.
+|1234|
+|Question|There are people I can talk to.
+|1234|
+|Question|There are people I can turn to.
+|1234|
+
+***********************
+END: CONFIRMATION SCREEN
+***********************
+
+|Page|Thank you for taking part in this study|
+|Question|Thank you for taking part in this study.
+|FirebaseCredits|
+|Question|Please expect to take this questionnaire again 2 times, 2 weeks and 4 weeks from now. Would you like a calendar reminder?
+|CalendarReminder|
+|Question|Your results have been saved. Feel free to close this window.
+|CloseWindow|
