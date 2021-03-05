@@ -44,15 +44,17 @@ body {
 
 .Main {
 	position: absolute;
-	left: 0px;
+	left: 50%;
 	top: 0px;
 	width: 100%;
+	max-width: 700px;
 	height: 100%;
 	font-size: 0px;
 
 	padding: none;
     margin-left: 0px;
     margin-right: 0px;
+    transform: translate(-50%, 0%);
 
     background-color: var(--main-bg-color);
 }
