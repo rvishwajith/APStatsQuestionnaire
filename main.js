@@ -61,15 +61,16 @@ $(document).ready(function() {
     // LEFT
     $(document).on("click",".NavBack", function (event) {
 
-        
-        
-        if(currentPage < pages.length && set) {
+
+        if(currentPage > 0 && set) {
 
             let newLeft = (currentPage - 1) * (-100) + "%";
             console.log(newLeft);
 
             $(".Page").animate({left: newLeft});
             currentPage--;
+
+            updateProgressBar();
         }
 
         
@@ -77,8 +78,6 @@ $(document).ready(function() {
 
     // RIGHT
     $(document).on("click",".NavForward", function (event) {
-
-        
         
         if(currentPage < pages.length && set) {
 
@@ -87,17 +86,17 @@ $(document).ready(function() {
 
             $(".Page").animate({left: newRight});
             currentPage++;
+
+            updateProgressBar();
         }
     });
 
 });
 
-function backClicked() {
+function updateProgressBar() {
 
-}
-
-function nextClicked() {
-
+    let newProgress = currentPage/pages.length * 100 + "%";
+    $(".Progress").animate({width: newProgress});
 }
 
 async function setWebpage() {

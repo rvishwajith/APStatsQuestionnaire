@@ -55,7 +55,6 @@ body {
     margin-right: 0px;
 
     background-color: var(--main-bg-color);
-    background-color: green;
 }
 
 .PageHolder {
@@ -72,8 +71,6 @@ body {
     overflow-y: scroll;
     white-space: nowrap;
     display: inline-block;
-
-    background-color: red;
     
     font-size: 0px;
     padding: none;
@@ -256,15 +253,15 @@ body {
 	top: 0px;
 	width: 100%;
 	height: 140px;
-	background-color: orange;
 
 	font-size: 16px;
 	font-weight: bold;
 	text-align: center;
 
-	line-height: 78px;
+	line-height: 168px;
 
 	overflow: hidden;
+	color: var(--main-text);
 }
 
 .ProgressBar {
@@ -285,13 +282,20 @@ body {
 	left: 0px;
 	top: 0px;
 	background-color: white;
-	width: 50%;
+	width: 0%;
 	height: 100%;
 }
 
 .SmallerTitle {
 	position: absolute;
 	height: 24px;
+	top: 104px;
+	left: 50%;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: initial;
+	transform: translate(-50%, 0%);
+	color: var(--main-text);
 }
 
 
