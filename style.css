@@ -115,6 +115,7 @@ body {
 }
 
 .Subtext {
+	cursor: pointer;
 	margin-top: 12px;
 	font-weight: bold;
 	color: var(--main-subtext);

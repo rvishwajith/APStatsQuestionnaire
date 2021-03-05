@@ -1,8 +1,11 @@
 let pageHolder = document.getElementsByClassName("PageHolder")[0];
 var markup;
 var pages = [];
+var currentPage = 0;
 
-start();
+var nextButtons;
+var backButtons;
+var set = false;
 
 class Page {
 
@@ -15,6 +18,10 @@ class Page {
 
     }
 }
+
+window.onbeforeunload = function() {
+  return "Data will be lost if you leave the page, are you sure?";
+};
 
 function getText(url) {
     return new Promise((resolve, reject) => {
@@ -40,11 +47,32 @@ async function start() {
     let markupLoc = "https://raw.githubusercontent.com/rvishwajith/APStatsQuestionnare/main/Data/SurveyMarkup.txt";
     markup = await getText("https://raw.githubusercontent.com/rvishwajith/APStatsQuestionnare/main/Data/SurveyMarkup.txt");
     
-    setWebpage();
-    
+    await setWebpage();
 }
 
-function setWebpage() {
+$(document).ready(function() {
+
+    start();
+
+    $(".NavForward").click(function() {
+        console.log("Continue");
+
+        if(currentPage < pages.length && set) {
+            $(".Page").animate({left: "-100%"});
+        }
+    });
+
+    $(".NavBack").click(function() {
+        console.log("Back");
+
+        if(currentPage > 0 && set) {
+            $(".Page").animate({left: "100%"});
+        }
+    });
+
+});
+
+async function setWebpage() {
     
     let markupLines = markup.split("\n");
     var currentPage = -1;
@@ -57,7 +85,6 @@ function setWebpage() {
         if(line.startsWith("|Page|")) {
 
             currentPage++;
-            // console.log("New page count: " + currentPage);
             pages.push(new Page());
 
             let title = line.replace("|Page|", "");
@@ -86,10 +113,9 @@ function setWebpage() {
             pages[currentPage].innerDiv.appendChild(div);
         }
     }
+
+    set = true;
 }
-
-
-
 
 
 
