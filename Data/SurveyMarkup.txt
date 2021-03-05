@@ -146,7 +146,7 @@ https://fetzer.org/sites/default/files/images/stories/pdf/selfmeasures/Self_Meas
 END: CONFIRMATION SCREEN
 ***********************
 
-|Page|Thank you for taking part in this study|
+|Page|Thank you for taking part in this study
 |Question|Thank you for taking part in this study.
 |FirebaseCredits|
 |Question|Please expect to take this questionnaire again 2 times, 2 weeks and 4 weeks from now. Would you like a calendar reminder?
