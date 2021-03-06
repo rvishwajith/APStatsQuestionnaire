@@ -50,6 +50,7 @@ async function start() {
     markup = await getText(markupLoc);
     
     await setWebpage();
+    updateProgressBar();
 }
 
 $(document).ready(function() {
@@ -127,7 +128,9 @@ $(document).ready(function() {
         let div = parent.get(0).getElementsByClassName("A1234ButtonActive")[0];
         let div2 = parent.get(0).getElementsByClassName("A1234Active")[0];
         let form = parent.get(0).getElementsByClassName("A1234Button");
-        let ans = div2.innerText
+        console.log(form);
+
+        let ans = div2.innerText;
 
         if(answer != ans) {
 
@@ -142,6 +145,7 @@ $(document).ready(function() {
             for(var i = 0; i < form.length; i++) {
                 form[i].className = form[1].className.replace(" A1234Active", "");
             }
+            
             form[num].className += " A1234Active";
             let amnt = 2 + 42 * num + "px";
             $(div).animate({left: amnt}, 200);
@@ -173,8 +177,12 @@ $(document).ready(function() {
 
 function updateProgressBar() {
 
-    let newProgress = currentPage/pages.length * 100 + "%";
+    let newProgress = currentPage/(pages.length - 1) * 100 + "%";
     $(".Progress").animate({width: newProgress});
+
+    let pageNum = currentPage + 1;
+    let div = document.getElementsByClassName("PageCounter")[0];
+    div.innerText = "Page " + pageNum + "/" + (pages.length);
 }
 
 async function setWebpage() {
@@ -312,6 +320,38 @@ async function setWebpage() {
             }
 
             holder.appendChild(div);
+        }
+        else if(line.startsWith("|1234|")) {
+
+            let div = document.createElement("div");
+            div.className = "A1234";
+
+            let div1 = document.createElement("div");
+            div1.className = "A1234Button A1234Active";
+            div1.innerText = "1";
+
+            let div2 = document.createElement("div");
+            div2.className = "A1234Button";
+            div2.innerText = "2";
+
+            let div3 = document.createElement("div");
+            div3.className = "A1234Button";
+            div3.innerText = "3";
+
+            let div4 = document.createElement("div");
+            div4.className = "A1234Button";
+            div4.innerText = "4";
+
+            let div5 = document.createElement("div");
+            div5.className = "A1234ButtonActive";
+
+            div.appendChild(div1);
+            div.appendChild(div2);
+            div.appendChild(div3);
+            div.appendChild(div4);
+            div.appendChild(div5);
+
+            pages[currentPage].innerDiv.appendChild(div);
         }
     }
 
