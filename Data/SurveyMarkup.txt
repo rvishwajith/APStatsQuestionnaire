@@ -61,7 +61,9 @@ PART 3: TEAM-FOCUSED SPORTS INFO
 |Answer|60 - 120
 |Answer|120 - 180
 |Answer|180 - 240
-|Answer|240+
+|Answer|240 - 300
+|Answer|300 - 360
+|Answer|360+
 
 
 
@@ -86,7 +88,9 @@ This page asks how many individual sports they play.
 |Answer|60 - 120
 |Answer|120 - 180
 |Answer|180 - 240
-|Answer|240+
+|Answer|240 - 300
+|Answer|300 - 360
+|Answer|360+
 
 
 
