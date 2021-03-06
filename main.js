@@ -183,6 +183,23 @@ async function setWebpage() {
 
             pages[currentPage].innerDiv.appendChild(div);
         }
+        else if(line.startsWith("|TextBox|")) {
+
+            let text = line.replace("|TextBox|", "");
+            let div = document.createElement("input");
+            div.type = "text";
+            div.className = "TextInput";
+            div.id = "StudentIDInput";
+            div.placeholder = text;
+
+            pages[currentPage].innerDiv.appendChild(div);
+        }
+        else if(line.startsWith("|StudentID|")) {
+
+            console.log("here");
+            let text = document.getElementByID("StudentIDInput").placeholder;
+            console.log(text);
+        }
     }
 
     set = true;

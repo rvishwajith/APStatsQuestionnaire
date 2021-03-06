@@ -10,15 +10,15 @@ PART 1: SURVEY CONFIRMATION AND CONSENT
 |Question|I am aware that this questionnaire will be used in a research project, and that my Student ID will be used for anonymous internal identification.
 |ReqYesNo|
 
-|Page|Email Collection
-|Question|Please enter your Monta Vista Student Email to continue.
-|Subtext|What's my student email?
-|SubtextInfo|Your student email is your FUHSD email, for example "jsmith999@student.fuhsd.org".
-|TextBox|Please enter your student email.
+|Page|ID Collection
+|Question|Please enter your Monta Vista Student ID to continue.
+|Subtext|What's my student ID?
+|SubtextInfo|Your student ID is the 7-digit ID number on your Monta Vista ID card. For example, "1234567". Your ID is used so that internally saved information is not associated with your name.
+|TextBox|Please enter your student ID.
 
-|Page|Email Confirmation
-|StudentEmail|
-|Question|Is this your correct student email?
+|Page|ID Confirmation
+|StudentID|
+|Question|Is this your correct student ID?
 |ReqYesNo|
 
 
