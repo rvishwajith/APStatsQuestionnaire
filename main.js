@@ -15,7 +15,6 @@ class Page {
         this.div = "";
         this.innerDiv = "";
         this.children = "";
-
     }
 }
 
@@ -80,6 +79,8 @@ $(document).ready(function() {
     $(document).on("click",".NavForward", function (event) {
         
         if(currentPage < pages.length && set) {
+
+            console.log($('StudentIDInput').val());
 
             let newRight = (currentPage + 1) * -100 + "%";
             console.log(newRight);
@@ -161,7 +162,9 @@ async function setWebpage() {
             div.innerText = text;
             pages[currentPage].innerDiv.appendChild(div);
         }
-        else if(line.startsWith("|ReqYesNo|" || "|YesNo|")) {
+        else if(line.startsWith("|ReqYesNo|") || line.startsWith("|YesNo|")) {
+
+            console.log("YesNo added on page " + currentPage); 
 
             let div = document.createElement("div");
             div.className += "YesNo";
@@ -196,9 +199,16 @@ async function setWebpage() {
         }
         else if(line.startsWith("|StudentID|")) {
 
-            console.log("here");
-            let text = document.getElementByID("StudentIDInput").placeholder;
+            var text = "";
+            text = document.getElementById("StudentIDInput").text;
             console.log(text);
+
+            let div = document.createElement("div");
+            div.id = "StudentIDAnswer";
+            div.className = "Centered Spaced";
+            div.innerText = document.getElementById("StudentIDInput").value + "1234567";
+
+            pages[currentPage].innerDiv.appendChild(div);
         }
     }
 

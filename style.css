@@ -30,7 +30,6 @@ html {
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
-    touch-action: none;
     outline: none;
 }
 
@@ -98,8 +97,14 @@ body {
     left: 0%;
 }
 
-.PageContent {
+.Spaced {
+	font-size: 20px;
+	font-weight: normal;
+	color: var(--main-text);
+	letter-spacing: 6px;
+}
 
+.PageContent {
 	width: 100%;
 	white-space: normal;
 	top: 0px;
@@ -124,6 +129,14 @@ body {
 	margin-top: 12px;
 	font-weight: bold;
 	color: var(--main-subtext);
+}
+
+.Centered {
+	cursor: pointer;
+	margin-top: 12px;
+	font-weight: bold;
+	color: var(--main-subtext);
+	text-align: center;
 }
 
 .YesNo {
