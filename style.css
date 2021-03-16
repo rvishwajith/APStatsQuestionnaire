@@ -68,16 +68,6 @@ body {
 	width: 100%;
 }
 
-.Page2 {
-	background-color: blue;
-	left: 100%;
-}
-
-.Page3 {
-	background-color: orange;
-	left: 200%;
-}
-
 .InnerPage {
 	position: relative;
 	left: 50%;

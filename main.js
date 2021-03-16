@@ -14,6 +14,7 @@ class Page {
         this.div = "";
         this.innerDiv = "";
         this.containsAnswers = false;
+        this.questions = []
     }
 }
 
@@ -93,6 +94,7 @@ async function setWebpage() {
 
             let title = line.replace("|Page|", "");
             numPages++;
+
             let pageObj = new Page();
             pages.push(pageObj)
             pageObj.title = title;
@@ -119,12 +121,19 @@ async function setWebpage() {
             div.className += "Text";
             div.innerText = text;
 
-            pages[currentPage].innerDiv.appendChild(div);
+            pages[numPages-1].innerDiv.appendChild(div);
 
         }
         else if(line.startsWith("|Question|")) {
 
-            let title = line.replace("|Question|", "");
+            let text = line.replace("|Question|", "");
+
+            let div = document.createElement("div");
+            div.className += "Text";
+            div.innerText = text;
+
+            pages[numPages-1].innerDiv.appendChild(div);
+            pages[numPages-1].questions = [];
 
         }
         else if(line.startsWith("|TextBox|")) {

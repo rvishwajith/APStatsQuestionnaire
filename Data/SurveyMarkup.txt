@@ -160,9 +160,9 @@ PART 7: CONFIRMATION SCREEN
 ***********************
 
 |Page|Thank you for taking part in this study
-|Question|Thank you for taking part in this study.
+|Text|Thank you for taking part in this study.
 |FirebaseCredits|
 |Question|Please expect to take this questionnaire again 2 times, 2 weeks and 4 weeks from now. Would you like a calendar reminder?
 |CalendarReminder|
-|Question|Your results have been saved. Feel free to close this window.
+|Text|Your results have been saved. Feel free to close this window.
 |CloseWindow|
