@@ -3,23 +3,23 @@ PART 1: SURVEY CONFIRMATION AND CONSENT
 ***********************
 
 |Page|Survey Consent & Accuracy Confirmation
-|Question|I am a current student at Monta Vista High School and would like to take this survey.
-|ReqYesNo|
-|Question|I will be able to take a similar questionnaire in about 2 weeks, and another similar questionnaire about 4 weeks from now.
-|ReqYesNo|
-|Question|I am aware that this questionnaire will be used in a research project, and that my Student ID will be used for anonymous internal identification.
-|ReqYesNo|
+|Text|I am a current student at Monta Vista High School and would like to take this survey.
+|Required|Yes,No
+|Text|I will be able to take a similar questionnaire in about 2 weeks, and another similar questionnaire about 4 weeks from now.
+|Required|Yes,No
+|Text|I am aware that this questionnaire will be used in a research project, and that my Student ID will be used for anonymous internal identification.
+|Required|Yes,No
 
 |Page|ID Collection
 |Question|Please enter your Monta Vista Student ID to continue.
 |Subtext|What's my student ID?
-|SubtextInfo|Your student ID is the 7-digit ID number on your Monta Vista ID card. For example, "1234567". Your ID is used so that internally saved information is not associated with your name.
+|SubtextInfo|Your student ID is the 7-digit ID number on your Monta Vista ID card. For example, "5142356". Your ID is used so that internally saved information is not associated with your name.
 |TextBox|Please enter your student ID.
 
 |Page|ID Confirmation
 |StudentID|
-|Question|Is this your correct student ID?
-|ReqYesNo|
+|Text|Is this your correct student ID?
+|Required|Yes,No
 
 
 
@@ -27,17 +27,21 @@ PART 1: SURVEY CONFIRMATION AND CONSENT
 PART 2: WHAT TYPE OF SPORTS DO STUDENTS PLAY?
 ***********************
 
+|Page|Gender Confirmation
+|Question|Please state your sex.
+|Required|Male,Female
+
 |Page|Individual Sports
 |Question|Do you play sports with an organization outside of school on a weekly basis?
-|YesNo|
+|Required|Yes,No
 
 |Page|Recreational Sports
 |Question|Do you play sports recreationally on a weekly basis?
-|YesNo|
+|Required|Yes,No
 
 |Page|School Sports
 |Question|Do you play sports as part of an official school team or club on a weekly basis?
-|YesNo|
+|Required|Yes,No
 
 
 
@@ -106,45 +110,45 @@ https://fetzer.org/sites/default/files/images/stories/pdf/selfmeasures/Self_Meas
 |Question|3. Sometimes
 |Question|4. Often
 |Question|I feel in tune with the people around me.
-|1234|
+|Required|1,2,3,4
 |Question|I lack companionship.
-|1234|
+|Required|1,2,3,4
 |Question|There is no one I can turn to.
-|1234|
+|Required|1,2,3,4
 |Question|I do not feel alone.
-|1234|
+|Required|1,2,3,4
 |Question|I feel part of a group of friends.
-|1234|
+|Required|1,2,3,4
 |Question|I have a lot in common with the people around me.
-|1234|
+|Required|1,2,3,4
 |Question|I am no longer close to anyone.
-|1234|
+|Required|1,2,3,4
 |Question|My interests and ideas are not shared by those around me.
-|1234|
+|Required|1,2,3,4
 |Question|I am an outgoing person.
-|1234|
+|Required|1,2,3,4
 |Question|There are people I feel close to.
-|1234|
+|Required|1,2,3,4
 |Question|I feel left out.
-|1234|
+|Required|1,2,3,4
 |Question|My social relationships are superficial.
-|1234|
+|Required|1,2,3,4
 |Question|No one really knows me well.
-|1234|
+|Required|1,2,3,4
 |Question|I feel isolated from others.
-|1234|
+|Required|1,2,3,4
 |Question|I can find companionship when I want it.
-|1234|
+|Required|1,2,3,4
 |Question|There are people who really understand me.
-|1234|
+|Required|1,2,3,4
 |Question|I am unhappy being so withdrawn.
-|1234|
+|Required|1,2,3,4
 |Question|People are around me but not with me.
-|1234|
+|Required|1,2,3,4
 |Question|There are people I can talk to.
-|1234|
+|Required|1,2,3,4
 |Question|There are people I can turn to.
-|1234|
+|Required|1,2,3,4
 
 ***********************
 END: CONFIRMATION SCREEN
