@@ -79,12 +79,56 @@ body {
 
 .Text {
 	position: relative;
-	position: relative;
 	left: 0px;
 	width: 100%;
+	padding-top: 8px;
 	color: var(--main-text);
 	background-color: green;
 }
+
+.SmallChoice {
+	position: relative;
+	color: var(--main-text);
+	display: inline-flex;
+	flex-wrap: wrap;
+	border-style: solid;
+	border-radius: 24px;
+	border-width: 2px;
+
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-right: 4px;
+	padding-left: 4px;
+
+	border-color: var(--main-text);
+}
+
+.SmallAnswer {
+	position: relative;
+	padding-left: 16px;
+	padding-right: 16px;
+	left: 0px;
+}
+
+.SmallAnswerActive {
+	color: var(--main-bg-color);
+}
+
+.SmallAnswerBackground {
+	position: absolute;
+	height: calc(100% - 4px);
+	top: 50%;
+	left: 2px;
+	width: 56px;
+	border-radius: 12px;
+	background-color: var(--main-text);
+	transform: translate(0%, -50%);
+}
+
+
+
+
+
 
 
 

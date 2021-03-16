@@ -82,8 +82,6 @@ async function setWebpage() {
     var numPages = 0;
     var numButtons = -1;
 
-    console.log(markupLines);
-
     for(var i = 0; i < markupLines.length; i++) {
         
         let line = markupLines[i];
@@ -133,8 +131,33 @@ async function setWebpage() {
             div.innerText = text;
 
             pages[numPages-1].innerDiv.appendChild(div);
-            pages[numPages-1].questions = [];
+            pages[numPages-1].questions.push(line);
 
+        }
+        else if(line.startsWith("|Required|")) {
+
+            let text = line.replace("|Required|", "");
+            let answers = text.split(",");
+
+            let div = document.createElement("div");
+            div.className += " SmallChoice";
+
+            for(var i = 0; i < answers.length; i++) {
+
+                console.log("eee");
+
+                /*
+                let div2 = document.createElement("div");
+                div2.className += " SmallAnswer";
+
+                if(i == 0) {
+                    div2.className += " SmallAnswerActive";
+                }
+
+                
+                div2.innerText = answers[i];
+                div.appendChild(div2);*/
+            }
         }
         else if(line.startsWith("|TextBox|")) {
 
