@@ -96,10 +96,15 @@ This page asks how many individual sports they play.
 |Answer|300 - 360
 |Answer|360+
 
+***********************
+PART 7: CHECK FOR INVALIDATING CONDITIONS
+https://fetzer.org/sites/default/files/images/stories/pdf/selfmeasures/Self_Measures_for_Loneliness_and_Interpersonal_Problems_UCLA_LONELINESS_REVISED.pdf
+***********************
+
 
 
 ***********************
-PART 5: UCLA LONELINESS SCALE
+PART 6: UCLA LONELINESS SCALE
 https://fetzer.org/sites/default/files/images/stories/pdf/selfmeasures/Self_Measures_for_Loneliness_and_Interpersonal_Problems_UCLA_LONELINESS_REVISED.pdf
 ***********************
 
@@ -151,7 +156,7 @@ https://fetzer.org/sites/default/files/images/stories/pdf/selfmeasures/Self_Meas
 |Required|1,2,3,4
 
 ***********************
-END: CONFIRMATION SCREEN
+PART 7: CONFIRMATION SCREEN
 ***********************
 
 |Page|Thank you for taking part in this study

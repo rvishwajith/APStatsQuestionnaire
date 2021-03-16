@@ -1,4 +1,4 @@
-let pageHolder = document.getElementsByClassName("PageHolder")[0];
+let body = document.getElementsByClassName("Body")[0];
 var markup;
 var pages = [];
 var currentPage = 0;
@@ -64,19 +64,24 @@ $(document).ready(function() {
 
 function updateProgressBar() {
 
+    /*
     let newProgress = currentPage/(pages.length - 1) * 100 + "%";
     $(".Progress").animate({width: newProgress});
 
     let pageNum = currentPage + 1;
     let div = document.getElementsByClassName("PageCounter")[0];
-    div.innerText = "Page " + pageNum + "/" + (pages.length);
+    div.innerText = "Page " + pageNum + "/" + (pages.length);*/
 }
 
 async function setWebpage() {
     
     let markupLines = markup.split("\n");
-    var currentPage = -1;
+    
+    // set to -1
+    var numPages = 0;
     var numButtons = -1;
+
+    console.log(markupLines);
 
     for(var i = 0; i < markupLines.length; i++) {
         
@@ -87,12 +92,39 @@ async function setWebpage() {
         if(line.startsWith("|Page|")) {
 
             let title = line.replace("|Page|", "");
+            numPages++;
+            let pageObj = new Page();
+            pages.push(pageObj)
+            pageObj.title = title;
+
+            var page = document.createElement("div");
+            page.className += " Page";
+            pageObj.div = page;
+            body.appendChild(page);
+
+            var amount = 100 * (numPages);
+            page.style.left = amount + "%";
+
+            var innerPage = document.createElement("div");
+            innerPage.className += " InnerPage";
+            pageObj.innerDiv = innerPage;
+            page.appendChild(innerPage);
+
+        }
+        else if(line.startsWith("|Text|")) {
+
+            let text = line.replace("|Text|", "");
+
+            let div = document.createElement("div");
+            div.className += "Text";
+            div.innerText = text;
+
+            pages[currentPage].innerDiv.appendChild(div);
 
         }
         else if(line.startsWith("|Question|")) {
 
             let title = line.replace("|Question|", "");
-            
 
         }
         else if(line.startsWith("|TextBox|")) {
