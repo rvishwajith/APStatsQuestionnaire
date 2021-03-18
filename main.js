@@ -71,13 +71,13 @@ $(document).ready(function() {
             console.log("hurrah");
 
             let newLeft = $(div).position().left;
-
+            oldDiv.className = oldDiv.className.replace(" SmallAnswerActive", "");
 
             $(div2).animate({
                 width: (div.getBoundingClientRect().width + 2) + "px",
                 left: newLeft
             }, 200, function() {
-                oldDiv.className = oldDiv.className.replace(" SmallAnswerActive", "");
+                
                 div.className += " SmallAnswerActive";
             });
         }
@@ -101,7 +101,7 @@ async function setWebpage() {
     let markupLines = markup.split("\n");
     
     // set to -1
-    var numPages = 0;
+    var numPages = -1;
     var numButtons = -1;
 
     for(var i = 0; i < markupLines.length; i++) {
@@ -111,6 +111,11 @@ async function setWebpage() {
         // GENERIC
 
         if(line.startsWith("|Page|")) {
+
+            if(numPages >= 0) {
+
+                
+            }
 
             let title = line.replace("|Page|", "");
             numPages++;
@@ -141,7 +146,7 @@ async function setWebpage() {
             div.className += "Text";
             div.innerText = text;
 
-            pages[numPages-1].innerDiv.appendChild(div);
+            pages[numPages].innerDiv.appendChild(div);
 
         }
         else if(line.startsWith("|Question|")) {
@@ -152,8 +157,8 @@ async function setWebpage() {
             div.className += "Text";
             div.innerText = text;
 
-            pages[numPages-1].innerDiv.appendChild(div);
-            pages[numPages-1].questions.push(line);
+            pages[numPages].innerDiv.appendChild(div);
+            pages[numPages].questions.push(line);
 
         }
         else if(line.startsWith("|Required|")) {
@@ -180,7 +185,7 @@ async function setWebpage() {
                 div2.innerText = answers[j];
                 div.appendChild(div2);
             }
-            pages[numPages-1].innerDiv.appendChild(div);
+            pages[numPages].innerDiv.appendChild(div);
 
             let div3 = document.createElement("div");
             div3.className += " SmallAnswerBackground";
