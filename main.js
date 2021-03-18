@@ -70,16 +70,16 @@ $(document).ready(function() {
         else {
             console.log("hurrah");
 
-            let newLeft = $(div).position().left - 2;
+            let newLeft = $(div).position().left;
 
 
             $(div2).animate({
                 width: (div.getBoundingClientRect().width + 2) + "px",
                 left: newLeft
-            }, 200, function(){});
-
-            oldDiv.className = oldDiv.className.replace(" SmallAnswerActive", "");
-            div.className += " SmallAnswerActive";
+            }, 200, function() {
+                oldDiv.className = oldDiv.className.replace(" SmallAnswerActive", "");
+                div.className += " SmallAnswerActive";
+            });
         }
 
     });
