@@ -95,7 +95,7 @@ $(document).ready(function() {
 
                 $(pages[i].div).animate({
                     left: "-=100%"
-                }, 400, function() {});
+                }, 300, function() {});
             }
         }
         else if(div.innerText.includes("Back")) {
@@ -106,7 +106,7 @@ $(document).ready(function() {
 
                 $(pages[i].div).animate({
                     left: "+=100%"
-                }, 400, function() {});
+                }, 300, function() {});
             }
         }
     });
