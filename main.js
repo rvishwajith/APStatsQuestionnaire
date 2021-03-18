@@ -213,7 +213,6 @@ async function setWebpage() {
 
         }
         else if(line.startsWith("|Required|")) {
-
             
             let text = line.replace("|Required|", "");
             let answers = text.split(",");
@@ -248,6 +247,13 @@ async function setWebpage() {
             let title = line.replace("|TextBox|", "");
 
         }
+        else if(line.startsWith("|Subtext|")) {
+
+            var text = line.replace("|Subtext|");
+            var text2 = markupLines[i+1].replace("|SubtextInfo|");
+            console.log(text);
+            i++;
+        }
 
         // SPECIAL CASES
 
@@ -257,7 +263,6 @@ async function setWebpage() {
 
 
     }
-
     set = true;
 }
 
