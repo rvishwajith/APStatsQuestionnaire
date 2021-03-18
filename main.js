@@ -58,8 +58,30 @@ $(document).ready(function() {
 
     start();
 
-    $(document).on("click",".NavBack", function (event) {
-        
+    $(document).on("click",".SmallAnswer", function (event) {
+
+        var div = event.target;
+        var div2 = div.parentElement.getElementsByClassName("SmallAnswerBackground")[0];
+        var oldDiv = div.parentElement.getElementsByClassName("SmallAnswerActive")[0]
+
+        if(div.className.includes("SmallAnswerActive")) {
+            console.log("ignore");
+        }
+        else {
+            console.log("hurrah");
+
+            let newLeft = $(div).position().left - 2;
+
+
+            $(div2).animate({
+                width: (div.getBoundingClientRect().width + 2) + "px",
+                left: newLeft
+            }, 200, function(){});
+
+            oldDiv.className = oldDiv.className.replace(" SmallAnswerActive", "");
+            div.className += " SmallAnswerActive";
+        }
+
     });
 });
 
@@ -136,28 +158,34 @@ async function setWebpage() {
         }
         else if(line.startsWith("|Required|")) {
 
+            
             let text = line.replace("|Required|", "");
             let answers = text.split(",");
 
             let div = document.createElement("div");
             div.className += " SmallChoice";
 
-            for(var i = 0; i < answers.length; i++) {
+            var activeDiv;
 
-                console.log("eee");
-
-                /*
+            for(var j = 0; j < answers.length; j++) {
+                
                 let div2 = document.createElement("div");
                 div2.className += " SmallAnswer";
 
-                if(i == 0) {
+                if(j == 0) {
                     div2.className += " SmallAnswerActive";
+                    activeDiv = div2;
                 }
 
-                
-                div2.innerText = answers[i];
-                div.appendChild(div2);*/
+                div2.innerText = answers[j];
+                div.appendChild(div2);
             }
+            pages[numPages-1].innerDiv.appendChild(div);
+
+            let div3 = document.createElement("div");
+            div3.className += " SmallAnswerBackground";
+            div3.style.width = activeDiv.getBoundingClientRect().width + "px";
+            div.prepend(div3);
         }
         else if(line.startsWith("|TextBox|")) {
 
