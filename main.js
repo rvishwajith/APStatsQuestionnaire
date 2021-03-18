@@ -77,11 +77,38 @@ $(document).ready(function() {
                 width: (div.getBoundingClientRect().width + 2) + "px",
                 left: newLeft
             }, 200, function() {
-                
                 div.className += " SmallAnswerActive";
             });
         }
 
+    });
+
+    $(document).on("click",".Buttons", function (event) {
+
+        let div = event.target;
+
+        if(div.innerText.includes("Continue")) {
+            
+            console.log("next");
+
+            for(var i = 0; i < pages.length; i++) {
+
+                $(pages[i].div).animate({
+                    left: "-=100%"
+                }, 400, function() {});
+            }
+        }
+        else if(div.innerText.includes("Back")) {
+            
+            console.log("back");
+
+            for(var i = 0; i < pages.length; i++) {
+
+                $(pages[i].div).animate({
+                    left: "+=100%"
+                }, 400, function() {});
+            }
+        }
     });
 });
 
@@ -94,6 +121,10 @@ function updateProgressBar() {
     let pageNum = currentPage + 1;
     let div = document.getElementsByClassName("PageCounter")[0];
     div.innerText = "Page " + pageNum + "/" + (pages.length);*/
+}
+
+function changePage() {
+
 }
 
 async function setWebpage() {
@@ -112,9 +143,29 @@ async function setWebpage() {
 
         if(line.startsWith("|Page|")) {
 
+            // ADD NEXT BUTTON
             if(numPages >= 0) {
 
-                
+                let innerDiv = pages[numPages].innerDiv;
+
+                let div = document.createElement("div");
+                div.className += " ButtonHolder";
+
+                // ADD BACK BUTTON AND NEXT BUTTON
+                if(numPages > 0) {
+                    let div3 = document.createElement("div");
+                    div3.className += "Buttons";
+                    div3.innerText = "<- Back"
+                    div.appendChild(div3);
+                }
+
+                let div2 = document.createElement("div");
+                div2.className += "Buttons";
+                div2.innerText = "Continue ->"
+
+                div.appendChild(div2);
+                innerDiv.appendChild(div);
+
             }
 
             let title = line.replace("|Page|", "");
