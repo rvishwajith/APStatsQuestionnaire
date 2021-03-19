@@ -15,6 +15,8 @@ class Page {
         this.innerDiv = "";
         this.containsAnswers = false;
         this.questions = []
+        this.hasRequiredYes = false;
+        this.satisfiedRequirements = false;
     }
 }
 
@@ -73,12 +75,40 @@ $(document).ready(function() {
             let newLeft = $(div).position().left;
             oldDiv.className = oldDiv.className.replace(" SmallAnswerActive", "");
 
+            div.className += " SmallAnswerActive";
             $(div2).animate({
                 width: (div.getBoundingClientRect().width + 2) + "px",
                 left: newLeft
-            }, 200, function() {
-                div.className += " SmallAnswerActive";
-            });
+            }, 150, function() {});
+
+            // CHECK IF ALL ANSWERS ARE YES
+
+            if(pages[currentPage].hasRequiredYes) {
+
+                let divs = pages[currentPage].innerDiv.getElementsByClassName("SmallAnswerActive");
+                var validToPass = true;
+                
+                for(var i = 0; i < divs.length; i++) {
+
+                    if(divs[i].innerHTML.includes("Yes")) {}
+                    else {
+                        validToPass = false;
+                    }
+                }
+
+                if(validToPass) {
+
+                    let div4 = pages[currentPage].innerDiv.getElementsByClassName("Buttons")[pages[currentPage].innerDiv.getElementsByClassName("Buttons").length-1];
+                    div4.className = div4.className.replace(" Disabled", "");
+                    console.log("ALL VALID");
+                }
+                else {
+                    let div4 = pages[currentPage].innerDiv.getElementsByClassName("Buttons")[pages[currentPage].innerDiv.getElementsByClassName("Buttons").length-1];
+                    if(div4.className.includes("Disabled") == false) {
+                        div4.className += " Disabled";
+                    }
+                }
+            }
         }
 
     });
@@ -111,20 +141,21 @@ $(document).ready(function() {
                 }, 300, function() {});
             }
         }
-
         updateProgressBar();
     });
 });
 
 function updateProgressBar() {
 
+    let pageNum = currentPage;
+    let newProgress = pageNum/(pages.length - 1) * 100 + "%";
     
-    let newProgress = currentPage/(pages.length - 1) * 100 + "%";
-    $(".ProgressBarFill").animate({width: newProgress});
+    let div = document.getElementsByClassName("ProgressBarFill")[0];
+    $(div).animate({width: newProgress});
 
-    let pageNum = currentPage + 1;
-    let div = document.getElementsByClassName("ProgressText");
-    div.innerText = "Page " + pageNum + "/" + (pages.length);
+    let div2 = document.getElementsByClassName("ProgressText")[0];
+    console.log(div2);
+    div2.innerHTML = "Page " + (pageNum + 1) + "/" + (pages.length);
 }
 
 async function setWebpage() {
@@ -165,6 +196,12 @@ async function setWebpage() {
 
                 div.appendChild(div2);
                 innerDiv.appendChild(div);
+
+                if(pages[numPages].hasRequiredYes) {
+                    
+                    //div2.disabled = true;
+                    div2.className += " Disabled";
+                }
 
             }
 
@@ -241,6 +278,38 @@ async function setWebpage() {
             div3.className += " SmallAnswerBackground";
             div3.style.width = activeDiv.getBoundingClientRect().width + "px";
             div.prepend(div3);
+        }
+        else if(line.startsWith("|RequiredYes|")) {
+
+            let text = line.replace("|RequiredYes|", "");
+            let answers = text.split(",");
+
+            let div = document.createElement("div");
+            div.className += " SmallChoice";
+
+            var activeDiv;
+
+            for(var j = 0; j < answers.length; j++) {
+                
+                let div2 = document.createElement("div");
+                div2.className += " SmallAnswer";
+
+                if(j == 0) {
+                    div2.className += " SmallAnswerActive";
+                    activeDiv = div2;
+                }
+
+                div2.innerText = answers[j];
+                div.appendChild(div2);
+            }
+            pages[numPages].innerDiv.appendChild(div);
+
+            let div3 = document.createElement("div");
+            div3.className += " SmallAnswerBackground";
+            div3.style.width = activeDiv.getBoundingClientRect().width + "px";
+            div.prepend(div3);
+
+            pages[numPages].hasRequiredYes = true;
         }
         else if(line.startsWith("|TextBox|")) {
 

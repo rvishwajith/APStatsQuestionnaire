@@ -136,6 +136,7 @@ body {
 .ButtonHolder {
 	display: inline-flex;
 	position: relative;
+	margin-top: 16px;
 	margin-bottom: 200px;
 	width: 100%;
 }
@@ -154,7 +155,6 @@ body {
 	border-color: var(--main-text);
 	border-width: 2px;
 	border-style: solid;
-	width: initial;
 	text-align: center;
 	cursor: pointer;
 	margin-right: 24px;
@@ -162,20 +162,26 @@ body {
 
 .ProgressBar {
 	position: absolute;
-	top: 40px;
+	top: 36px;
 	left: 50%;
 	transform: translate(-50%, 0%);
 	width: 64%;
 	min-width: 64px;
-	height: 6px;
+	height: 4px;
 	overflow: hidden;
 	border-radius: 6px;
-	background-color: var(--main-text);
+	background-color: var(--main-bg-color);
+	border-style: solid;
+	border-width: 2px;
+	border-color: var(--main-text);
 }
 
 .ProgressBarFill {
 	position: relative;
 	background-color: var(--main-text);
+	height: 4px;
+	border: none;
+	width: 0%;
 }
 
 .ProgressText {
@@ -184,7 +190,11 @@ body {
 	margin-top: 12px;
 }
 
-
+.Disabled {
+	pointer-events: none;
+	cursor: initial;
+	opacity: 50%;
+}
 
 
 
