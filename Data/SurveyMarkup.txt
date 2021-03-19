@@ -12,12 +12,13 @@ PART 1: SURVEY CONFIRMATION AND CONSENT
 
 |Page|ID Collection
 |Text|Please enter your Monta Vista Student ID to continue.
+|StudentID|
 |Subtext|What's my student ID?
 |SubtextInfo|Your student ID is the 7-digit ID number on your Monta Vista ID card. For example, "5142356". Your ID is used so that internally saved information is not associated with your name.
 |TextBox|Please enter your student ID.
 
 |Page|ID Confirmation
-|StudentID|
+|&StudentID|
 |Text|Is this your correct student ID?
 |RequiredYes|No,Yes
 

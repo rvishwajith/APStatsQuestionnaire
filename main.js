@@ -154,7 +154,6 @@ function updateProgressBar() {
     $(div).animate({width: newProgress});
 
     let div2 = document.getElementsByClassName("ProgressText")[0];
-    console.log(div2);
     div2.innerHTML = "Page " + (pageNum + 1) + "/" + (pages.length);
 }
 
@@ -314,7 +313,6 @@ async function setWebpage() {
         else if(line.startsWith("|TextBox|")) {
 
             let title = line.replace("|TextBox|", "");
-
         }
         else if(line.startsWith("|Subtext|")) {
 
@@ -329,11 +327,11 @@ async function setWebpage() {
         else if(line.startsWith("|StudentID|")) {
 
             let div = document.createElement("input");
-            input.type = "text";
-            input.placeholder = "Student ID"
-            input.className = ""; // set the CSS class
-            container.appendChild(input);
-
+            console.log("ARRIVED");
+            div.type = "text";
+            div.placeholder = "Student ID"
+            div.className += "Enabled"; // set the CSS class
+            pages[numPages].innerDiv.appendChild(div);
         }
 
 

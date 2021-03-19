@@ -30,6 +30,9 @@ html {
 * {
 	font-family: ProductSans;
 	font-size: 14px;
+}
+
+div {
 	-webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
@@ -196,6 +199,9 @@ body {
 	opacity: 50%;
 }
 
+.Enabled {
+
+}
 
 
 
