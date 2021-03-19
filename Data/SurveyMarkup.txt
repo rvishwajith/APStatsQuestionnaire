@@ -28,8 +28,8 @@ PART 2: WHAT TYPE OF SPORTS DO STUDENTS PLAY?
 ***********************
 
 |Page|Gender Confirmation
-|Question|Please state your sex.
-|Required|Male,Female,Other,I'd Rather Not Say
+|Question|Please state your gender. If you'd ratehr not say or don't identify as one of the following, select "Other".
+|Required|Male,Female,Other
 
 |Page|Individual Sports
 |Question|Do you play sports with an organization outside of school on a weekly basis?
