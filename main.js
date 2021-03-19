@@ -90,6 +90,7 @@ $(document).ready(function() {
         if(div.innerText.includes("Continue")) {
             
             console.log("next");
+            currentPage++;
 
             for(var i = 0; i < pages.length; i++) {
 
@@ -101,6 +102,7 @@ $(document).ready(function() {
         else if(div.innerText.includes("Back")) {
             
             console.log("back");
+            currentPage--;
 
             for(var i = 0; i < pages.length; i++) {
 
@@ -109,18 +111,20 @@ $(document).ready(function() {
                 }, 300, function() {});
             }
         }
+
+        updateProgressBar();
     });
 });
 
 function updateProgressBar() {
 
-    /*
+    
     let newProgress = currentPage/(pages.length - 1) * 100 + "%";
-    $(".Progress").animate({width: newProgress});
+    $(".ProgressBarFill").animate({width: newProgress});
 
     let pageNum = currentPage + 1;
-    let div = document.getElementsByClassName("PageCounter")[0];
-    div.innerText = "Page " + pageNum + "/" + (pages.length);*/
+    let div = document.getElementsByClassName("ProgressText");
+    div.innerText = "Page " + pageNum + "/" + (pages.length);
 }
 
 function changePage() {

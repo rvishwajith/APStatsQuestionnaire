@@ -173,6 +173,11 @@ body {
 	background-color: var(--main-text);
 }
 
+.ProgressBarFill {
+	position: relative;
+	background-color: var(--main-text);
+}
+
 .ProgressText {
 	color: var(--main-text);
 	text-align: center;

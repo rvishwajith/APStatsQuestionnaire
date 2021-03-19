@@ -6,7 +6,7 @@ PART 1: SURVEY CONFIRMATION AND CONSENT
 |Text|I am a current student at Monta Vista High School and would like to take this survey.
 |RequiredYes|No,Yes
 |Text|I will be able to take a similar questionnaire in about 2 weeks, and another similar questionnaire about 4 weeks from now.
-|Required|No,Yes
+|RequiredYes|No,Yes
 |Text|I am aware that this questionnaire will be used in a research project, and that my Student ID will be used for anonymous internal identification.
 |RequiredYes|No,Yes
 
