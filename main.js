@@ -326,7 +326,13 @@ async function setWebpage() {
 
         // SPECIAL CASES
 
-        else if(line.startsWith("StudentID")) {
+        else if(line.startsWith("|StudentID|")) {
+
+            let div = document.createElement("input");
+            input.type = "text";
+            input.placeholder = "Student ID"
+            input.className = ""; // set the CSS class
+            container.appendChild(input);
 
         }
 
