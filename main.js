@@ -127,10 +127,6 @@ function updateProgressBar() {
     div.innerText = "Page " + pageNum + "/" + (pages.length);
 }
 
-function changePage() {
-
-}
-
 async function setWebpage() {
     
     let markupLines = markup.split("\n");
