@@ -142,25 +142,28 @@ body {
 	margin-top: 16px;
 	margin-bottom: 200px;
 	width: 100%;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
 }
 
 .Buttons {
 	display: inline-flex;
 	position: relative;
-	left: 50%;
 	padding-right: 16px;
 	padding-left: 16px;
 	padding-top: 6px;
 	padding-bottom: 6px;
 	border-radius: 24px;
-	transform: translate(-50%, 0%);
 	color: var(--main-text);
 	border-color: var(--main-text);
 	border-width: 2px;
 	border-style: solid;
 	text-align: center;
 	cursor: pointer;
-	margin-right: 24px;
+	margin-right: 8px;
+	justify-content: center;
+	align-items: center;
 }
 
 .ProgressBar {
@@ -199,16 +202,16 @@ body {
 	opacity: 50%;
 }
 
-.Enabled {
-
+.TextArea {
+	position: relative;
+	background-color: transparent;
+	border-style: solid;
+	border-color: white;
+	color: var(--main-text);
+	height: 26px;
+	text-indent: 4px;
+	border-radius: 6px;
 }
-
-
-
-
-
-
-
 
 
 

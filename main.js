@@ -330,7 +330,7 @@ async function setWebpage() {
             console.log("ARRIVED");
             div.type = "text";
             div.placeholder = "Student ID"
-            div.className += "Enabled"; // set the CSS class
+            div.className += "TextArea"; // set the CSS class
             pages[numPages].innerDiv.appendChild(div);
         }
 
