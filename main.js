@@ -163,6 +163,7 @@ function updateProgressBar() {
     if(pageNum == (pages.length - 1)) {
 
         console.log("FINAL PAGE REACHED");
+        finished = true;
     }
 }
 
@@ -334,6 +335,11 @@ async function setWebpage() {
             div.className += " Text SmallBlueText";
             div.innerText = text.replace("undefined", "");
             pages[numPages].innerDiv.appendChild(div);
+        }
+        else if(line.startsWith("|Answer|")) {
+
+            let answers = [];
+
         }
 
         // SPECIAL CASES
