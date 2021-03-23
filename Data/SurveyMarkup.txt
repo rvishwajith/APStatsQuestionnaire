@@ -160,7 +160,21 @@ https://fetzer.org/sites/default/files/images/stories/pdf/selfmeasures/Self_Meas
 |Required|1,2,3,4
 
 ***********************
-PART 7: CONFIRMATION SCREEN
+PART 7: MEDICAL CONDITIONS
+***********************
+
+|Page|Data Compromisation Checks
+|Question|Do you suffer from depression or anxiety?
+|Required|No,Yes
+|Question|Do you have any medical conditons that reduce or prevent you from playing sports?
+|Required|No,Yes
+|Question|Has your regular sports activity been affected by a severe illness or condition?
+|Required|No,Yes
+|Question|Are there any other life-changing factors affecting your faily sport-based activities and/or mental health?
+|Required|No,Yes
+
+***********************
+PART 8: CONFIRMATION SCREEN
 ***********************
 
 |Page|Thank you for taking part in this study

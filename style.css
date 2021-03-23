@@ -216,20 +216,19 @@ body {
 }
 
 .SmallBlueText {
-
 	cursor: pointer;
 	color: var(--main-subtext);
 	font-family: bold;
 }
 
 .CenteredID {
-
 	position: relative;
 	width: 100%;
-	font-size: 18px;
+	font-size: 20px;
 	text-align: center;
-	color: var(--main-text);
-	margin-bottom: 12px;
+	color: var(--main-subtext);
+	letter-spacing: 12px;
+	margin-bottom: 4px;
 }
 
 
