@@ -70,7 +70,7 @@ $(document).ready(function() {
             console.log("ignore");
         }
         else {
-            console.log("hurrah");
+            /*console.log("hurrah");*/
 
             let newLeft = $(div).position().left;
             oldDiv.className = oldDiv.className.replace(" SmallAnswerActive", "");
@@ -119,7 +119,7 @@ $(document).ready(function() {
 
         if(div.innerText.includes("Continue")) {
             
-            console.log("next");
+            /*console.log("next");*/
             currentPage++;
 
             for(var i = 0; i < pages.length; i++) {
@@ -131,7 +131,7 @@ $(document).ready(function() {
         }
         else if(div.innerText.includes("Back")) {
             
-            console.log("back");
+            /*console.log("back");*/
             currentPage--;
 
             for(var i = 0; i < pages.length; i++) {
@@ -154,7 +154,11 @@ function updateProgressBar() {
     $(div).animate({width: newProgress});
 
     let div2 = document.getElementsByClassName("ProgressText")[0];
-    div2.innerHTML = "Page " + (pageNum + 1) + "/" + (pages.length);
+    div2.innerHTML = "Page " + (pageNum + 1) + "/" + (pages.length) + " - " + pages[currentPage].title;
+
+    let div3 = document.getElementsByClassName("CenteredID")[0];
+    div3.innerText = document.getElementsByClassName("TextArea")[0].value;
+    console.log("TEXT: " + div3.innerText);
 }
 
 async function setWebpage() {
@@ -318,8 +322,13 @@ async function setWebpage() {
 
             var text = line.replace("|Subtext|");
             var text2 = markupLines[i+1].replace("|SubtextInfo|");
-            console.log(text);
+            // console.log(text);
             i++;
+
+            let div = document.createElement("div");
+            div.className += " Text SmallBlueText";
+            div.innerText = text.replace("undefined", "");
+            pages[numPages].innerDiv.appendChild(div);
         }
 
         // SPECIAL CASES
@@ -331,6 +340,12 @@ async function setWebpage() {
             div.type = "text";
             div.placeholder = "Student ID"
             div.className += "TextArea"; // set the CSS class
+            pages[numPages].innerDiv.appendChild(div);
+        }
+        else if(line.startsWith("|&StudentID|")) {
+
+            let div = document.createElement("div");
+            div.className += " CenteredID";
             pages[numPages].innerDiv.appendChild(div);
         }
 
