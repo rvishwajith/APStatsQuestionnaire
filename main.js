@@ -6,6 +6,7 @@ var currentPage = 0;
 var nextButtons;
 var backButtons;
 var set = false;
+var finished = false;
 
 class Page {
 
@@ -20,13 +21,12 @@ class Page {
     }
 }
 
-/*
-
 window.onbeforeunload = function() {
-  return "Data will be lost if you leave the page, are you sure?";
-};
 
-*/
+    if(finished == false) {
+        return "Your survey data will be lost if you leave the page, are you sure?";
+    }
+};
 
 function getText(url) {
     return new Promise((resolve, reject) => {
@@ -159,6 +159,11 @@ function updateProgressBar() {
     let div3 = document.getElementsByClassName("CenteredID")[0];
     div3.innerText = document.getElementsByClassName("TextArea")[0].value;
     console.log("TEXT: " + div3.innerText);
+
+    if(pageNum == (pages.length - 1)) {
+
+        console.log("FINAL PAGE REACHED");
+    }
 }
 
 async function setWebpage() {
