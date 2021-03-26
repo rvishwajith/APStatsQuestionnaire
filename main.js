@@ -9,6 +9,7 @@ var nextButtons;
 var backButtons;
 var set = false;
 var finished = false;
+var finalResult = "";
 
 class Page {
 
@@ -193,15 +194,28 @@ function generateAnswerLog() {
             var div = all[j];
 
             if(div.className.includes("Active") && !div.className.includes("Ignore")) {
-                console.log("Answer: " + div.innerHTML);
+                answers.push(div.innerHTML);
             }
         }
     }
 
-    for(var i = 0; i < questions.length; i++) {
-        //console.log("Question: " + questions[i]);
+    let div3 = document.getElementsByClassName("CenteredID")[0];
+    div3.innerText = document.getElementsByClassName("TextArea")[0].value;
+    //console.log("ID: " + div3.innerText);
 
+    var d = new Date();
+    finalResult += "Student ID: " + div3.innerText + "\n";
+    finalResult += "Date: " + d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + "\n";
+    finalResult += "Time: " + d.getHours() + ":" + d.getMinutes() + "\n";
+
+    for(var i = 0; i < questions.length; i++) {
+        finalResult += "Question: " + questions[i] + "\n";
+        finalResult += "Answer: " + answers[i] + "\n";
     }
+    finalResult += "DATA END\n"
+
+    console.log(finalResult);
+    storeData();
 }
 
 async function setWebpage() {
@@ -332,14 +346,14 @@ async function setWebpage() {
             let answers = text.split(",");
 
             let div = document.createElement("div");
-            div.className += " SmallChoice Ignore";
+            div.className += " SmallChoice";
 
             var activeDiv;
 
             for(var j = 0; j < answers.length; j++) {
                 
                 let div2 = document.createElement("div");
-                div2.className += " SmallAnswer";
+                div2.className += " SmallAnswer Ignore";
 
                 if(j == 0) {
                     div2.className += " SmallAnswerActive";
@@ -434,7 +448,24 @@ async function setWebpage() {
     set = true;
 }
 
+function storeData() {
 
+    console.log("data is beign stored");
+    var email = "password123456@emaildomain.com";
+    var password = "123456";
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+        // Signed in 
+            var user = userCredential.user;
+        // ...
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+        // ..
+        });
+}
 
 
 

@@ -179,5 +179,5 @@ PART 8: CONFIRMATION SCREEN
 
 |Page|Quetionnare Complete!
 |Text|Thank you for taking part in this study.
-|Question|Please expect to take this questionnaire again in the near future 2 times, about 2 weeks and 4 weeks from now.
+|Text|Please expect to take this questionnaire again in the near future 2 times, about 2 weeks and 4 weeks from now.
 |Text|Your results have been saved to the cloud. Feel free to close this window.
