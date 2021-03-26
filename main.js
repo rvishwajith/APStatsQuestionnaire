@@ -2,6 +2,7 @@ let body = document.getElementsByClassName("Body")[0];
 var markup;
 var pages = [];
 var questions = [];
+var answers = [];
 var currentPage = 0;
 
 var nextButtons;
@@ -103,7 +104,7 @@ $(document).ready(function() {
 
                     let div4 = pages[currentPage].innerDiv.getElementsByClassName("Buttons")[pages[currentPage].innerDiv.getElementsByClassName("Buttons").length-1];
                     div4.className = div4.className.replace(" Disabled", "");
-                    console.log("ALL VALID");
+                    //console.log("ALL VALID");
                 }
                 else {
                     let div4 = pages[currentPage].innerDiv.getElementsByClassName("Buttons")[pages[currentPage].innerDiv.getElementsByClassName("Buttons").length-1];
@@ -172,7 +173,7 @@ function updateProgressBar() {
 
     let div3 = document.getElementsByClassName("CenteredID")[0];
     div3.innerText = document.getElementsByClassName("TextArea")[0].value;
-    console.log("TEXT: " + div3.innerText);
+    //console.log("ID: " + div3.innerText);
 
     if(pageNum == (pages.length - 1)) {
 
@@ -183,8 +184,23 @@ function updateProgressBar() {
 
 function generateAnswerLog() {
 
+    for(var i = 0; i < pages.length - 1; i++) {
+
+        let all = pages[i].innerDiv.getElementsByTagName("*");
+
+        for(var j = 0; j < all.length; j++) {
+
+            var div = all[j];
+
+            if(div.className.includes("Active") && !div.className.includes("Ignore")) {
+                console.log("Answer: " + div.innerHTML);
+            }
+        }
+    }
+
     for(var i = 0; i < questions.length; i++) {
-        console.log("Question: " + questions[i]);
+        //console.log("Question: " + questions[i]);
+
     }
 }
 
@@ -261,7 +277,7 @@ async function setWebpage() {
             let text = line.replace("|Text|", "");
 
             let div = document.createElement("div");
-            div.className += "Text";
+            div.className += "Text Ignore";
             div.innerText = text;
 
             pages[numPages].innerDiv.appendChild(div);
@@ -272,7 +288,7 @@ async function setWebpage() {
             let text = line.replace("|Question|", "");
 
             let div = document.createElement("div");
-            div.className += "Text";
+            div.className += "Text Ignore";
             div.innerText = text;
 
             pages[numPages].innerDiv.appendChild(div);
@@ -316,7 +332,7 @@ async function setWebpage() {
             let answers = text.split(",");
 
             let div = document.createElement("div");
-            div.className += " SmallChoice";
+            div.className += " SmallChoice Ignore";
 
             var activeDiv;
 
@@ -354,7 +370,7 @@ async function setWebpage() {
             i++;
 
             let div = document.createElement("div");
-            div.className += " Text SmallBlueText";
+            div.className += " Text SmallBlueText Ignore";
             div.innerText = text.replace("undefined", "");
             pages[numPages].innerDiv.appendChild(div);
         }
@@ -374,7 +390,6 @@ async function setWebpage() {
 
                     var text = line.replace("|Answer|", "");
                     answers.push(text);
-                    console.log("ANSWER ---- " + text);
                     let div2 = document.createElement("div");
                     div2.className += " MultipleChoiceAnswer";
                     div2.innerHTML = text;

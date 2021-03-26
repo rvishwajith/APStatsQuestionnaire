@@ -84,7 +84,7 @@ This page asks how many individual sports they play.
 |Question|How many individual sports do you play for more than 1 hour a week?
 -----------------
 |Subtext|What's an individual sport?
-|SubtextInfo|An individual sport is focused around a single player/ Examples are solo badminton or tennis.
+|SubtextInfo|An individual sport is focused around a single player. Examples are solo badminton or tennis.
 |Answer|I don't play any.
 |Answer|I play 1 solo sport weekly.
 |Answer|I play 2 solo sports weekly.
@@ -113,7 +113,7 @@ https://fetzer.org/sites/default/files/images/stories/pdf/selfmeasures/Self_Meas
 ***********************
 
 |Page|UCLA Loneliness Measurements
-|Question|Please answer the following questions to the best of your ability. All answers will remain anonymous.
+|Text|Please answer the following questions to the best of your ability. All answers will remain anonymous.
 |Text|1. Never
 |Text|2. Rarely
 |Text|3. Sometimes
