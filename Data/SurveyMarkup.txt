@@ -114,10 +114,10 @@ https://fetzer.org/sites/default/files/images/stories/pdf/selfmeasures/Self_Meas
 
 |Page|UCLA Loneliness Measurements
 |Question|Please answer the following questions to the best of your ability. All answers will remain anonymous.
-|Question|1. Never
-|Question|2. Rarely
-|Question|3. Sometimes
-|Question|4. Often
+|Text|1. Never
+|Text|2. Rarely
+|Text|3. Sometimes
+|Text|4. Often
 |Question|I feel in tune with the people around me.
 |Required|1,2,3,4
 |Question|I lack companionship.

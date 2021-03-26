@@ -1,6 +1,7 @@
 let body = document.getElementsByClassName("Body")[0];
 var markup;
 var pages = [];
+var questions = [];
 var currentPage = 0;
 
 var nextButtons;
@@ -21,12 +22,14 @@ class Page {
     }
 }
 
+/*
 window.onbeforeunload = function() {
 
     if(finished == false) {
         return "Your survey data will be lost if you leave the page, are you sure?";
     }
 };
+*/
 
 function getText(url) {
     return new Promise((resolve, reject) => {
@@ -162,8 +165,15 @@ function updateProgressBar() {
 
     if(pageNum == (pages.length - 1)) {
 
-        console.log("FINAL PAGE REACHED");
+        generateAnswerLog();
         finished = true;
+    }
+}
+
+function generateAnswerLog() {
+
+    for(var i = 0; i < questions.length; i++) {
+        console.log("Question: " + questions[i]);
     }
 }
 
@@ -256,6 +266,7 @@ async function setWebpage() {
 
             pages[numPages].innerDiv.appendChild(div);
             pages[numPages].questions.push(line);
+            questions.push(text);
 
         }
         else if(line.startsWith("|Required|")) {
@@ -359,8 +370,6 @@ async function setWebpage() {
             div.className += " CenteredID";
             pages[numPages].innerDiv.appendChild(div);
         }
-
-
     }
     set = true;
 }
