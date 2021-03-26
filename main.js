@@ -449,15 +449,19 @@ async function setWebpage() {
 
 async function storeData() {
 
-    console.log("data is being stored");
-    var email = "password123456@emaildomain.com";
+    let div3 = document.getElementsByClassName("CenteredID")[0];
+    div3.innerText = document.getElementsByClassName("TextArea")[0].value;
+    var id = div3.innerText;
+
+    var email = id + "@domain.com"
     var password = "123456";
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
         // Signed in 
             var user = userCredential.user;
-            console.log("user created!");
+            console.log("user created with email " + email);
+            signInUser(email, password);
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -472,8 +476,8 @@ async function signInUser(email, password) {
         .then((userCredential) => {
         // Signed in 
             var user = userCredential.user;
-            console.log("successfully signed in!");
-            saveDataToAll();
+            console.log("successfully signed in to " + email);
+            saveDataToAll(email);
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -482,19 +486,15 @@ async function signInUser(email, password) {
         });
 }
 
-async function saveDataToAll() {
+async function saveDataToAll(email) {
 
     var db = firebase.firestore();
 
-    var initialString = db.collection("users").doc("AllData").data().toString();
-    console.log("INITIAL STRING: " + initialString);
-
-
     db.collection("users").doc("AllData").set({
-        AllInput1: finalResult
+        userInput1: finalResult
     })
     .then(() => {
-        console.log("Document successfully written!");
+        console.log("Document successfully written to " + email);
     })
     .catch((error) => {
         console.error("Error writing document: ", error);
