@@ -204,17 +204,16 @@ function generateAnswerLog() {
     //console.log("ID: " + div3.innerText);
 
     var d = new Date();
-    finalResult += "Student ID: " + div3.innerText + "\n";
-    finalResult += "Date: " + d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + "\n";
-    finalResult += "Time: " + d.getHours() + ":" + d.getMinutes() + "\n";
+    finalResult += "Student ID: " + div3.innerText + "&&";
+    finalResult += "Date: " + d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + "&&";
+    finalResult += "Time: " + d.getHours() + ":" + d.getMinutes() + "&&";
 
     for(var i = 0; i < questions.length; i++) {
-        finalResult += "Question: " + questions[i] + "\n";
-        finalResult += "Answer: " + answers[i] + "\n";
+        finalResult += "Question: " + questions[i] + "&&";
+        finalResult += "Answer: " + answers[i] + "&&";
     }
-    finalResult += "DATA END\n"
+    finalResult += "DATA END&&&"
 
-    console.log(finalResult);
     storeData();
 }
 
@@ -448,9 +447,9 @@ async function setWebpage() {
     set = true;
 }
 
-function storeData() {
+async function storeData() {
 
-    console.log("data is beign stored");
+    console.log("data is being stored");
     var email = "password123456@emaildomain.com";
     var password = "123456";
 
@@ -458,17 +457,49 @@ function storeData() {
         .then((userCredential) => {
         // Signed in 
             var user = userCredential.user;
-        // ...
+            console.log("user created!");
         })
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
-        // ..
+            signInUser(email, password);
         });
 }
 
+async function signInUser(email, password) {
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+        // Signed in 
+            var user = userCredential.user;
+            console.log("successfully signed in!");
+            saveDataToAll();
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            exists = true;
+        });
+}
+
+async function saveDataToAll() {
+
+    var db = firebase.firestore();
+
+    var initialString = db.collection("users").doc("AllData").data().toString();
+    console.log("INITIAL STRING: " + initialString);
 
 
+    db.collection("users").doc("AllData").set({
+        AllInput1: finalResult
+    })
+    .then(() => {
+        console.log("Document successfully written!");
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
 
 
 
