@@ -121,12 +121,9 @@ $(document).ready(function() {
         let div = event.target;
 
         if(div.innerText.includes("Continue")) {
-            
             /*console.log("next");*/
             currentPage++;
-
             for(var i = 0; i < pages.length; i++) {
-
                 $(pages[i].div).animate({
                     left: "-=100%"
                 }, 300, function() {});
@@ -136,15 +133,29 @@ $(document).ready(function() {
             
             /*console.log("back");*/
             currentPage--;
-
             for(var i = 0; i < pages.length; i++) {
-
                 $(pages[i].div).animate({
                     left: "+=100%"
                 }, 300, function() {});
             }
         }
         updateProgressBar();
+    });
+
+    $(document).on("click",".MultipleChoiceAnswer", function (event) {
+
+        let div = event.target;
+        let parent = div.parentElement;
+        let allDiv = parent.getElementsByClassName("MultipleChoiceAnswer");
+
+        if(!div.className.includes("MultipleChoiceActive")) {
+
+            for(var i = 0; i < allDiv.length; i++) {
+                allDiv[i].className = allDiv[0].className.replace(" MultipleChoiceActive", "");
+            }
+
+            div.className += " MultipleChoiceActive";
+        }
     });
 });
 
@@ -187,7 +198,7 @@ async function setWebpage() {
 
     for(var i = 0; i < markupLines.length; i++) {
         
-        let line = markupLines[i];
+        var line = markupLines[i];
 
         // GENERIC
 
@@ -350,7 +361,41 @@ async function setWebpage() {
         else if(line.startsWith("|Answer|")) {
 
             let answers = [];
+            var isAnswer = true;
 
+            let div = document.createElement("div");
+            div.className += " MultipleChoice";
+
+            var increased = false;
+
+            while(isAnswer) {
+
+                if(line.startsWith("|Answer|")) {
+
+                    var text = line.replace("|Answer|", "");
+                    answers.push(text);
+                    console.log("ANSWER ---- " + text);
+                    let div2 = document.createElement("div");
+                    div2.className += " MultipleChoiceAnswer";
+                    div2.innerHTML = text;
+                    div.appendChild(div2);
+
+                    if(!increased) {
+                        div2.className += " MultipleChoiceActive";
+                    }
+
+                    i++;
+                    increased = true;
+                }
+                else {
+                    isAnswer = false;
+                }
+                line = markupLines[i];
+            }
+            
+            
+
+            pages[numPages].innerDiv.appendChild(div);
         }
 
         // SPECIAL CASES
