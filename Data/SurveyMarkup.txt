@@ -170,7 +170,7 @@ PART 7: MEDICAL CONDITIONS
 |Required|No,Yes
 |Question|Has your regular sports activity been affected by a severe illness or condition?
 |Required|No,Yes
-|Question|Are there any other life-changing factors affecting your faily sport-based activities and/or mental health?
+|Question|Are there any other life-changing factors affecting your daily sport-based activities and/or mental health?
 |Required|No,Yes
 
 ***********************
